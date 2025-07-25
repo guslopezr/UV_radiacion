@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografía: Protección Laboral Frente a la Radiación UV</title>
+    <title id="pageTitle">Infographic: UV Radiation Workplace Protection</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,21 +58,22 @@
 <body class="text-gray-800">
 
     <header class="bg-white shadow-md sticky top-0 z-10">
-        <div class="container mx-auto px-6 py-4">
-            <h1 class="text-2xl md:text-3xl font-bold text-center text-red-600">Protección Laboral Frente a la Radiación UV Solar</h1>
+        <div class="container mx-auto px-6 py-4 flex flex-col items-center">
+            <button id="languageToggle" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full mb-4" onclick="toggleLanguage()">Español</button>
+            <h1 class="text-2xl md:text-3xl font-bold text-center text-red-600" data-lang-key="headerTitle">Workplace Protection Against Solar UV Radiation</h1>
         </div>
     </header>
 
     <main class="container mx-auto px-6 py-8">
 
         <section id="intro" class="mb-16 text-center">
-            <h2 class="text-3xl font-bold mb-4 section-title">El Riesgo Oculto del Sol</h2>
-            <p class="max-w-3xl mx-auto text-lg text-gray-600">La exposición excesiva y/o acumulada a la radiación UV de origen solar produce efectos dañinos a corto y largo plazo. El cáncer de piel es el más frecuente de todos los cánceres y su incidencia ha aumentado peligrosamente.</p>
+            <h2 class="text-3xl font-bold mb-4 section-title" data-lang-key="introTitle">The Sun's Hidden Risk</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600" data-lang-key="introText">Excessive and/or accumulated exposure to solar UV radiation causes harmful short-term and long-term effects. Skin cancer is the most common of all cancers, and its incidence has increased dangerously.</p>
             <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div class="stat-card">
-                    <h3 class="text-xl font-bold mb-2">Mortalidad en Chile (1990-2005)</h3>
+                    <h3 class="text-xl font-bold mb-2" data-lang-key="mortalityTitle">Mortality in Chile (1990-2005)</h3>
                     <p class="stat-number">+113%</p>
-                    <p class="text-gray-600 mt-2">Aumento en el número de defunciones anuales por tumores malignos de piel en 15 años.</p>
+                    <p class="text-gray-600 mt-2" data-lang-key="mortalityText">Increase in annual deaths from malignant skin tumors over 15 years.</p>
                 </div>
                 <div class="chart-container h-64 md:h-80">
                     <canvas id="cancerTypeChart"></canvas>
@@ -81,13 +82,13 @@
         </section>
 
         <section id="understanding" class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center section-title">Entendiendo la Amenaza: Radiación UV</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center section-title" data-lang-key="understandingTitle">Understanding the Threat: UV Radiation</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h3 class="text-2xl font-bold mb-4 text-center">Penetración en la Piel</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-center" data-lang-key="skinPenetrationTitle">Skin Penetration</h3>
                     <div class="bg-white p-4 rounded-lg shadow-lg relative h-64">
-                        <div class="absolute top-0 left-0 w-full h-1/3 bg-orange-100 rounded-t-lg flex items-center justify-center"><span class="font-bold">Epidermis</span></div>
-                        <div class="absolute top-1/3 left-0 w-full h-2/3 bg-red-100 rounded-b-lg flex items-center justify-center"><span class="font-bold">Dermis</span></div>
+                        <div class="absolute top-0 left-0 w-full h-1/3 bg-orange-100 rounded-t-lg flex items-center justify-center"><span class="font-bold" data-lang-key="epidermis">Epidermis</span></div>
+                        <div class="absolute top-1/3 left-0 w-full h-2/3 bg-red-100 rounded-b-lg flex items-center justify-center"><span class="font-bold" data-lang-key="dermis">Dermis</span></div>
                         
                         <div class="absolute top-0 h-full w-1/3 left-0 flex flex-col items-center">
                             <span class="font-bold text-red-600">UVB</span>
@@ -102,10 +103,10 @@
                         <div class="absolute top-0 h-full w-1/3 left-2/3 flex flex-col items-center">
                             <span class="font-bold text-gray-500">UVC</span>
                             <span class="mt-4 text-2xl">❌</span>
-                            <p class="text-xs text-center mt-2">Bloqueada por la capa de ozono</p>
+                            <p class="text-xs text-center mt-2" data-lang-key="blockedByOzone">Blocked by ozone layer</p>
                         </div>
                     </div>
-                     <p class="text-center mt-4 text-gray-600">La radiación UVA penetra más profundamente que la UVB, causando envejecimiento, mientras que la UVB es la principal causante de quemaduras y daño directo al ADN.</p>
+                     <p class="text-center mt-4 text-gray-600" data-lang-key="uvPenetrationText">UVA radiation penetrates deeper than UVB, causing aging, while UVB is the primary cause of sunburn and direct DNA damage.</p>
                 </div>
                 <div class="chart-container">
                     <canvas id="uvIndexChart"></canvas>
@@ -114,71 +115,71 @@
         </section>
 
         <section id="controls" class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center section-title">La Jerarquía de Control de Riesgos</h2>
-            <p class="max-w-3xl mx-auto text-lg text-gray-600 text-center mb-8">La protección eficaz se logra aplicando medidas en un orden de prioridad: primero ingeniería, luego administración y finalmente, el equipo de protección personal (EPP).</p>
+            <h2 class="text-3xl font-bold mb-8 text-center section-title" data-lang-key="hierarchyTitle">The Hierarchy of Risk Control</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600 text-center mb-8" data-lang-key="hierarchyText">Effective protection is achieved by applying measures in order of priority: first engineering, then administration, and finally, personal protective equipment (PPE).</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="control-card" style="border-color: #FF4E50;">
-                    <h3 class="text-2xl font-bold mb-4 flex items-center"><span class="text-3xl mr-3">1️⃣</span> Medidas de Ingeniería</h3>
+                    <h3 class="text-2xl font-bold mb-4 flex items-center" data-lang-key="engineeringControlsTitle"><span class="text-3xl mr-3">1️⃣</span> Engineering Controls</h3>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li>Realizar un adecuado sombraje de los lugares de trabajo.</li>
-                        <li>Utilizar elementos como techos, mallas oscuras y de trama tupida.</li>
-                        <li>Fomentar la arborización para crear sombras naturales.</li>
-                        <li>Usar vidrios en vehículos y edificios que filtren la radiación UV.</li>
+                        <li data-lang-key="eng1">Provide adequate shading in workplaces.</li>
+                        <li data-lang-key="eng2">Use elements like roofs, dark and tightly woven meshes.</li>
+                        <li data-lang-key="eng3">Promote tree planting for natural shade.</li>
+                        <li data-lang-key="eng4">Use UV-filtering glass in vehicles and buildings.</li>
                     </ul>
                 </div>
                 <div class="control-card" style="border-color: #FC913A;">
-                    <h3 class="text-2xl font-bold mb-4 flex items-center"><span class="text-3xl mr-3">2️⃣</span> Medidas Administrativas</h3>
+                    <h3 class="text-2xl font-bold mb-4 flex items-center" data-lang-key="administrativeMeasuresTitle"><span class="text-3xl mr-3">2️⃣</span> Administrative Measures</h3>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li>Calendarizar faenas para evitar horas de máxima radiación.</li>
-                        <li>Rotar puestos de trabajo para disminuir el tiempo de exposición.</li>
-                        <li>Programar horarios de colación entre 13:00 y 15:00 en lugares con sombra.</li>
-                        <li>Publicar diariamente el Índice UV y las medidas de control a aplicar.</li>
+                        <li data-lang-key="adm1">Schedule tasks to avoid peak radiation hours.</li>
+                        <li data-lang-key="adm2">Rotate job positions to reduce exposure time.</li>
+                        <li data-lang-key="adm3">Schedule lunch breaks between 1:00 PM and 3:00 PM in shaded areas.</li>
+                        <li data-lang-key="adm4">Daily publication of the UV Index and applicable control measures.</li>
                     </ul>
                 </div>
                 <div class="control-card" style="border-color: #F9D423;">
-                    <h3 class="text-2xl font-bold mb-4 flex items-center"><span class="text-3xl mr-3">3️⃣</span> Equipo de Protección Personal</h3>
+                    <h3 class="text-2xl font-bold mb-4 flex items-center" data-lang-key="ppeControlsTitle"><span class="text-3xl mr-3">3️⃣</span> Personal Protective Equipment (PPE)</h3>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li>Proporcionar y capacitar sobre el uso de EPP adecuados.</li>
-                        <li>Utilizar gorros, anteojos, ropa protectora y protector solar.</li>
-                        <li>Supervisar el uso correcto y permanente del equipo.</li>
-                        <li>El EPP es la última barrera de defensa, no la primera.</li>
+                        <li data-lang-key="ppe1">Provide and train on the use of appropriate PPE.</li>
+                        <li data-lang-key="ppe2">Use hats, eyewear, protective clothing, and sunscreen.</li>
+                        <li data-lang-key="ppe3">Supervise correct and continuous use of equipment.</li>
+                        <li data-lang-key="ppe4">PPE is the last line of defense, not the first.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section id="ppe" class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center section-title">Su Equipo de Protección Personal (EPP)</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center section-title" data-lang-key="yourPpeTitle">Your Personal Protective Equipment (PPE)</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 
                 <div class="stat-card col-span-1 md:col-span-2 lg:col-span-2">
-                    <h3 class="text-2xl font-bold mb-4">Ropa Protectora: El Color Importa</h3>
-                    <p class="text-gray-600 mb-4">La ropa es una barrera fundamental. Los colores oscuros y las tramas tupidas (como el poliéster) ofrecen mayor protección que las telas claras y delgadas (como el algodón).</p>
+                    <h3 class="text-2xl font-bold mb-4" data-lang-key="clothingTitle">Protective Clothing: Color Matters</h3>
+                    <p class="text-gray-600 mb-4" data-lang-key="clothingText">Clothing is a fundamental barrier. Dark colors and tightly woven fabrics (like polyester) offer greater protection than light, thin fabrics (like cotton).</p>
                     <div class="chart-container h-80">
                         <canvas id="clothingChart"></canvas>
                     </div>
                 </div>
 
                 <div class="stat-card">
-                    <h3 class="text-2xl font-bold mb-4">Protector Solar (FPS)</h3>
+                    <h3 class="text-2xl font-bold mb-4" data-lang-key="sunscreenTitle">Sunscreen (SPF)</h3>
                     <div class="text-left space-y-3">
-                        <p><span class="font-bold text-red-600">Mínimo FPS 30:</span> Para todos los trabajadores expuestos.</p>
-                        <p><span class="font-bold text-red-600">FPS 50+:</span> Para zonas con nieve/agua, altura o mayor riesgo.</p>
-                        <p><span class="font-bold text-red-600">Aplicación:</span> Cada 2-3 horas. Aplicar 20 minutos antes de la exposición.</p>
-                        <p><span class="font-bold text-red-600">Cantidad correcta:</span> La clave es usar suficiente. Una aplicación deficiente reduce drásticamente la protección.</p>
+                        <p><span class="font-bold text-red-600" data-lang-key="spf30">Minimum SPF 30:</span> For all exposed workers.</p>
+                        <p><span class="font-bold text-red-600" data-lang-key="spf50">SPF 50+:</span> For areas with snow/water, high altitude, or higher risk.</p>
+                        <p><span class="font-bold text-red-600" data-lang-key="spfApplication">Application:</span> Every 2-3 hours. Apply 20 minutes before exposure.</p>
+                        <p><span class="font-bold text-red-600" data-lang-key="spfAmount">Correct amount:</span> Using enough is key. Insufficient application drastically reduces protection.</p>
                         <div class="text-center text-4xl mt-4">🧴</div>
-                        <p class="text-center font-bold">~1/2 cucharadita para cara y cuello.</p>
+                        <p class="text-center font-bold" data-lang-key="spfTeaspoon">~1/2 teaspoon for face and neck.</p>
                     </div>
                 </div>
 
                 <div class="stat-card">
-                    <h3 class="text-2xl font-bold mb-4">Gorro y Anteojos</h3>
+                    <h3 class="text-2xl font-bold mb-4" data-lang-key="hatEyewearTitle">Hat and Eyewear</h3>
                      <div class="text-left space-y-3">
-                        <p><span class="font-bold text-red-600">Gorro:</span> De ala ancha (mínimo 7 cm) o tipo legionario que cubra cuello y orejas.</p>
+                        <p><span class="font-bold text-red-600" data-lang-key="hatText">Hat:</span> Wide-brimmed (minimum 7 cm) or legionnaire style covering neck and ears.</p>
                         <div class="text-center text-4xl my-4">👒</div>
-                        <p><span class="font-bold text-red-600">Anteojos:</span> Con protección lateral y filtro de al menos 97% de la radiación UV.</p>
+                        <p><span class="font-bold text-red-600" data-lang-key="eyewearText">Eyewear:</span> With side protection and at least 97% UV radiation filter.</p>
                          <div class="text-center text-4xl my-4">🕶️</div>
-                        <p class="text-sm text-gray-500">Esencial en lugares con alta reflexión como nieve, agua o arena.</p>
+                        <p class="text-sm text-gray-500" data-lang-key="eyewearNote">Essential in highly reflective environments like snow, water, or sand.</p>
                     </div>
                 </div>
             </div>
@@ -187,11 +188,165 @@
     </main>
 
     <footer class="bg-gray-800 text-white text-center p-6">
-        <p class="font-bold text-xl">¡Protegerse del sol es proteger la salud y la vida!</p>
-        <p class="mt-2 text-sm">Esta infografía se basa en la "Guía Técnica de Radiación Ultravioleta de Origen Solar" del Ministerio de Salud de Chile.</p>
+        <p class="font-bold text-xl" data-lang-key="footerSlogan">Protecting yourself from the sun means protecting your health and life!</p>
+        <p class="mt-2 text-sm" data-lang-key="footerSource">This infographic is based on the "Technical Guide for Solar Ultraviolet Radiation" from the Ministry of Health of Chile.</p>
     </footer>
 
     <script>
+        const translations = {
+            en: {
+                pageTitle: 'Infographic: UV Radiation Workplace Protection',
+                headerTitle: 'Workplace Protection Against Solar UV Radiation',
+                languageButton: 'Español',
+                introTitle: 'The Sun\'s Hidden Risk',
+                introText: 'Excessive and/or accumulated exposure to solar UV radiation causes harmful short-term and long-term effects. Skin cancer is the most common of all cancers, and its incidence has increased dangerously.',
+                mortalityTitle: 'Mortality in Chile (1990-2005)',
+                mortalityText: 'Increase in annual deaths from malignant skin tumors over 15 years.',
+                understandingTitle: 'Understanding the Threat: UV Radiation',
+                skinPenetrationTitle: 'Skin Penetration',
+                epidermis: 'Epidermis',
+                dermis: 'Dermis',
+                blockedByOzone: 'Blocked by ozone layer',
+                uvPenetrationText: 'UVA radiation penetrates deeper than UVB, causing aging, while UVB is the primary cause of sunburn and direct DNA damage.',
+                hierarchyTitle: 'The Hierarchy of Risk Control',
+                hierarchyText: 'Effective protection is achieved by applying measures in order of priority: first engineering, then administration, and finally, personal protective equipment (PPE).',
+                engineeringControlsTitle: 'Engineering Controls',
+                eng1: 'Provide adequate shading in workplaces.',
+                eng2: 'Use elements like roofs, dark and tightly woven meshes.',
+                eng3: 'Promote tree planting for natural shade.',
+                eng4: 'Use UV-filtering glass in vehicles and buildings.',
+                administrativeMeasuresTitle: 'Administrative Measures',
+                adm1: 'Schedule tasks to avoid peak radiation hours.',
+                adm2: 'Rotate job positions to reduce exposure time.',
+                adm3: 'Schedule lunch breaks between 1:00 PM and 3:00 PM in shaded areas.',
+                adm4: 'Daily publication of the UV Index and applicable control measures.',
+                ppeControlsTitle: 'Personal Protective Equipment (PPE)',
+                ppe1: 'Provide and train on the use of appropriate PPE.',
+                ppe2: 'Use hats, eyewear, protective clothing, and sunscreen.',
+                ppe3: 'Supervise correct and continuous use of equipment.',
+                ppe4: 'PPE is the last line of defense, not the first.',
+                yourPpeTitle: 'Your Personal Protective Equipment (PPE)',
+                clothingTitle: 'Protective Clothing: Color Matters',
+                clothingText: 'Clothing is a fundamental barrier. Dark colors and tightly woven fabrics (like polyester) offer greater protection than light, thin fabrics (like cotton).',
+                sunscreenTitle: 'Sunscreen (SPF)',
+                spf30: 'Minimum SPF 30:',
+                spf50: 'SPF 50+:',
+                spfApplication: 'Application:',
+                spfAmount: 'Correct amount:',
+                spfTeaspoon: '~1/2 teaspoon for face and neck.',
+                hatEyewearTitle: 'Hat and Eyewear',
+                hatText: 'Hat:',
+                eyewearText: 'Eyewear:',
+                eyewearNote: 'Essential in highly reflective environments like snow, water, or sand.',
+                footerSlogan: 'Protecting yourself from the sun means protecting your health and life!',
+                footerSource: 'This infographic is based on the "Technical Guide for Solar Ultraviolet Radiation" from the Ministry of Health of Chile.',
+                chartCancerTitle: 'Distribution of Skin Cancers (Estimated)',
+                chartCancerLabel1: 'Basal Cell Carcinoma',
+                chartCancerLabel2: 'Squamous Cell Carcinoma',
+                chartCancerLabel3: 'Melanoma',
+                chartUVIndexTitle: 'UV Index Risk Categories',
+                chartUVIndexYAxis: 'Index Value',
+                chartUVIndexLabel1: 'Low',
+                chartUVIndexLabel2: 'Moderate',
+                chartUVIndexLabel3: 'High',
+                chartUVIndexLabel4: 'Very High',
+                chartUVIndexLabel5: 'Extremely High',
+                chartClothingTitle: 'Protection Effectiveness by Color and Fabric Type',
+                chartClothingXAxis: '% UV Blockage (Estimated)',
+                chartClothingLabel1: 'White (Cotton)',
+                chartClothingLabel2: 'Yellow',
+                chartClothingLabel3: 'Light Blue',
+                chartClothingLabel4: 'Red',
+                chartClothingLabel5: 'Dark Green',
+                chartClothingLabel6: 'Black (Polyester)'
+            },
+            es: {
+                pageTitle: 'Infografía: Protección Laboral Frente a la Radiación UV',
+                headerTitle: 'Protección Laboral Frente a la Radiación UV Solar',
+                languageButton: 'English',
+                introTitle: 'El Riesgo Oculto del Sol',
+                introText: 'La exposición excesiva y/o acumulada a la radiación UV de origen solar produce efectos dañinos a corto y largo plazo. El cáncer de piel es el más frecuente de todos los cánceres y su incidencia ha aumentado peligrosamente.',
+                mortalityTitle: 'Mortalidad en Chile (1990-2005)',
+                mortalityText: 'Aumento en el número de defunciones anuales por tumores malignos de piel en 15 años.',
+                understandingTitle: 'Entendiendo la Amenaza: Radiación UV',
+                skinPenetrationTitle: 'Penetración en la Piel',
+                epidermis: 'Epidermis',
+                dermis: 'Dermis',
+                blockedByOzone: 'Bloqueada por la capa de ozono',
+                uvPenetrationText: 'La radiación UVA penetra más profundamente que la UVB, causando envejecimiento, mientras que la UVB es la principal causante de quemaduras y daño directo al ADN.',
+                hierarchyTitle: 'La Jerarquía de Control de Riesgos',
+                hierarchyText: 'La protección eficaz se logra aplicando medidas en un orden de prioridad: primero ingeniería, luego administración y finalmente, el equipo de protección personal (EPP).',
+                engineeringControlsTitle: 'Medidas de Ingeniería',
+                eng1: 'Realizar un adecuado sombraje de los lugares de trabajo.',
+                eng2: 'Utilizar elementos como techos, mallas oscuras y de trama tupida.',
+                eng3: 'Fomentar la arborización para crear sombras naturales.',
+                eng4: 'Usar vidrios en vehículos y edificios que filtren la radiación UV.',
+                administrativeMeasuresTitle: 'Medidas Administrativas',
+                adm1: 'Calendarizar faenas para evitar horas de máxima radiación.',
+                adm2: 'Rotar puestos de trabajo para disminuir el tiempo de exposición.',
+                adm3: 'Programar horarios de colación entre 13:00 y 15:00 en lugares con sombra.',
+                adm4: 'Publicar diariamente el Índice UV y las medidas de control a aplicar.',
+                ppeControlsTitle: 'Equipo de Protección Personal',
+                ppe1: 'Proporcionar y capacitar sobre el uso de EPP adecuados.',
+                ppe2: 'Utilizar gorros, anteojos, ropa protectora y protector solar.',
+                ppe3: 'Supervisar el uso correcto y permanente del equipo.',
+                ppe4: 'El EPP es la última barrera de defensa, no la primera.',
+                yourPpeTitle: 'Su Equipo de Protección Personal (EPP)',
+                clothingTitle: 'Ropa Protectora: El Color Importa',
+                clothingText: 'La ropa es una barrera fundamental. Los colores oscuros y las tramas tupidas (como el poliéster) ofrecen mayor protección que las telas claras y delgadas (como el algodón).',
+                sunscreenTitle: 'Protector Solar (FPS)',
+                spf30: 'Mínimo FPS 30:',
+                spf50: 'FPS 50+:',
+                spfApplication: 'Aplicación:',
+                spfAmount: 'Cantidad correcta:',
+                spfTeaspoon: '~1/2 cucharadita para cara y cuello.',
+                hatEyewearTitle: 'Gorro y Anteojos',
+                hatText: 'Gorro:',
+                eyewearText: 'Anteojos:',
+                eyewearNote: 'Esencial en lugares con alta reflexión como nieve, agua o arena.',
+                footerSlogan: '¡Protegerse del sol es proteger la salud y la vida!',
+                footerSource: 'Esta infografía se basa en la "Guía Técnica de Radiación Ultravioleta de Origen Solar" del Ministerio de Salud de Chile.',
+                chartCancerTitle: 'Distribución de Cánceres de Piel (Estimado)',
+                chartCancerLabel1: 'Carcinoma Basocelular',
+                chartCancerLabel2: 'Carcinoma Espinocelular',
+                chartCancerLabel3: 'Melanoma',
+                chartUVIndexTitle: 'Categorías de Riesgo del Índice UV',
+                chartUVIndexYAxis: 'Valor del Índice',
+                chartUVIndexLabel1: 'Bajo',
+                chartUVIndexLabel2: 'Moderado',
+                chartUVIndexLabel3: 'Alto',
+                chartUVIndexLabel4: 'Muy Alto',
+                chartUVIndexLabel5: 'Extremadamente Alto',
+                chartClothingTitle: 'Efectividad de Protección por Color y Tipo de Tela',
+                chartClothingXAxis: '% de Bloqueo UV (Estimado)',
+                chartClothingLabel1: 'Blanco (Algodón)',
+                chartClothingLabel2: 'Amarillo',
+                chartClothingLabel3: 'Azul Claro',
+                chartClothingLabel4: 'Rojo',
+                chartClothingLabel5: 'Verde Oscuro',
+                chartClothingLabel6: 'Negro (Poliéster)'
+            }
+        };
+
+        let currentLang = 'en'; // Default language
+
+        const chartInstances = {}; // Store chart instances to update labels
+
+        function wrapLabels(label, maxWidth) {
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
         const tooltipConfig = {
             plugins: {
                 tooltip: {
@@ -209,131 +364,176 @@
             }
         };
 
-        function wrapLabels(label, maxWidth) {
-            const words = label.split(' ');
-            let lines = [];
-            let currentLine = '';
-            words.forEach(word => {
-                if ((currentLine + word).length > maxWidth) {
-                    lines.push(currentLine.trim());
-                    currentLine = '';
+        function updateContent() {
+            document.getElementById('pageTitle').textContent = translations[currentLang].pageTitle;
+            document.getElementById('languageToggle').textContent = translations[currentLang].languageButton;
+
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
                 }
-                currentLine += word + ' ';
             });
-            lines.push(currentLine.trim());
-            return lines;
+
+            // Update Chart.js labels and titles
+            if (chartInstances.cancerTypeChart) {
+                chartInstances.cancerTypeChart.options.plugins.title.text = translations[currentLang].chartCancerTitle;
+                chartInstances.cancerTypeChart.data.labels = [
+                    translations[currentLang].chartCancerLabel1,
+                    translations[currentLang].chartCancerLabel2,
+                    translations[currentLang].chartCancerLabel3
+                ];
+                chartInstances.cancerTypeChart.update();
+            }
+
+            if (chartInstances.uvIndexChart) {
+                chartInstances.uvIndexChart.options.plugins.title.text = translations[currentLang].chartUVIndexTitle;
+                chartInstances.uvIndexChart.options.scales.y.title.text = translations[currentLang].chartUVIndexYAxis;
+                const originalLabelsUV = [
+                    translations[currentLang].chartUVIndexLabel1,
+                    translations[currentLang].chartUVIndexLabel2,
+                    translations[currentLang].chartUVIndexLabel3,
+                    translations[currentLang].chartUVIndexLabel4,
+                    translations[currentLang].chartUVIndexLabel5
+                ];
+                chartInstances.uvIndexChart.data.labels = originalLabelsUV.map(label => wrapLabels(label, 16));
+                chartInstances.uvIndexChart.update();
+            }
+
+            if (chartInstances.clothingChart) {
+                chartInstances.clothingChart.options.plugins.title.text = translations[currentLang].chartClothingTitle;
+                chartInstances.clothingChart.options.scales.x.title.text = translations[currentLang].chartClothingXAxis;
+                chartInstances.clothingChart.data.labels = [
+                    translations[currentLang].chartClothingLabel1,
+                    translations[currentLang].chartClothingLabel2,
+                    translations[currentLang].chartClothingLabel3,
+                    translations[currentLang].chartClothingLabel4,
+                    translations[currentLang].chartClothingLabel5,
+                    translations[currentLang].chartClothingLabel6
+                ];
+                chartInstances.clothingChart.update();
+            }
         }
 
-        const cancerTypeCtx = document.getElementById('cancerTypeChart').getContext('2d');
-        new Chart(cancerTypeCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Cáncer Basocelular', 'Cáncer Espinocelular', 'Melanoma'],
-                datasets: [{
-                    label: 'Tipos de Cáncer de Piel',
-                    data: [80, 15, 5],
-                    backgroundColor: ['#F9D423', '#FC913A', '#FF4E50'],
-                    borderColor: '#ffffff',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    ...tooltipConfig.plugins,
-                    legend: {
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Distribución de Cánceres de Piel (Estimado)',
-                        font: { size: 16 }
-                    }
-                }
-            }
-        });
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            updateContent();
+        }
 
-        const uvIndexCtx = document.getElementById('uvIndexChart').getContext('2d');
-        const originalLabels = ['Bajo', 'Moderado', 'Alto', 'Muy Alto', 'Extremadamente Alto'];
-        const wrappedLabels = originalLabels.map(label => wrapLabels(label, 16));
-        new Chart(uvIndexCtx, {
-            type: 'bar',
-            data: {
-                labels: wrappedLabels,
-                datasets: [{
-                    label: 'Índice UV',
-                    data: [2, 5, 7, 10, 11],
-                    backgroundColor: ['#a7f3d0', '#fde047', '#fb923c', '#f87171', '#ef4444'],
-                    borderColor: ['#059669', '#f59e0b', '#ea580c', '#dc2626', '#b91c1c'],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize charts and store instances
+            const cancerTypeCtx = document.getElementById('cancerTypeChart').getContext('2d');
+            chartInstances.cancerTypeChart = new Chart(cancerTypeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: [], // Will be set by updateContent
+                    datasets: [{
+                        label: 'Types of Skin Cancer',
+                        data: [80, 15, 5],
+                        backgroundColor: ['#F9D423', '#FC913A', '#FF4E50'],
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        ...tooltipConfig.plugins,
+                        legend: {
+                            position: 'top',
+                        },
                         title: {
                             display: true,
-                            text: 'Valor del Índice'
+                            text: '', // Will be set by updateContent
+                            font: { size: 16 }
                         }
                     }
-                },
-                plugins: {
-                    ...tooltipConfig.plugins,
-                    legend: {
-                        display: false
-                    },
-                    title: {
-                        display: true,
-                        text: 'Categorías de Riesgo del Índice UV',
-                        font: { size: 16 }
-                    }
                 }
-            }
-        });
+            });
 
-        const clothingCtx = document.getElementById('clothingChart').getContext('2d');
-        new Chart(clothingCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Blanco (Algodón)', 'Amarillo', 'Azul Claro', 'Rojo', 'Verde Oscuro', 'Negro (Poliéster)'],
-                datasets: [{
-                    label: 'Nivel de Protección Relativo',
-                    data: [15, 30, 50, 70, 85, 98],
-                    backgroundColor: ['#FFFFFF', '#F9D423', '#60a5fa', '#FF4E50', '#166534', '#1f2937'],
-                    borderColor: '#6b7280',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                indexAxis: 'y',
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        max: 100,
+            const uvIndexCtx = document.getElementById('uvIndexChart').getContext('2d');
+            chartInstances.uvIndexChart = new Chart(uvIndexCtx, {
+                type: 'bar',
+                data: {
+                    labels: [], // Will be set by updateContent
+                    datasets: [{
+                        label: 'UV Index',
+                        data: [2, 5, 7, 10, 11],
+                        backgroundColor: ['#a7f3d0', '#fde047', '#fb923c', '#f87171', '#ef4444'],
+                        borderColor: ['#059669', '#f59e0b', '#ea580c', '#dc2626', '#b91c1c'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '' // Will be set by updateContent
+                            }
+                        }
+                    },
+                    plugins: {
+                        ...tooltipConfig.plugins,
+                        legend: {
+                            display: false
+                        },
                         title: {
                             display: true,
-                            text: '% de Bloqueo UV (Estimado)'
+                            text: '', // Will be set by updateContent
+                            font: { size: 16 }
                         }
                     }
+                }
+            });
+
+            const clothingCtx = document.getElementById('clothingChart').getContext('2d');
+            chartInstances.clothingChart = new Chart(clothingCtx, {
+                type: 'bar',
+                data: {
+                    labels: [], // Will be set by updateContent
+                    datasets: [{
+                        label: 'Relative Protection Level',
+                        data: [15, 30, 50, 70, 85, 98],
+                        backgroundColor: ['#FFFFFF', '#F9D423', '#60a5fa', '#FF4E50', '#166534', '#1f2937'],
+                        borderColor: '#6b7280',
+                        borderWidth: 1
+                    }]
                 },
-                plugins: {
-                    ...tooltipConfig.plugins,
-                    legend: {
-                        display: false
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: '' // Will be set by updateContent
+                            }
+                        }
                     },
-                    title: {
-                        display: true,
-                        text: 'Efectividad de Protección por Color y Tipo de Tela',
-                        font: { size: 16 }
+                    plugins: {
+                        ...tooltipConfig.plugins,
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: '', // Will be set by updateContent
+                            font: { size: 16 }
+                        }
                     }
                 }
-            }
+            });
+
+            // Initial content update
+            updateContent();
         });
     </script>
 </body>
